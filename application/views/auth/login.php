@@ -20,9 +20,9 @@
     <div class="container ">  
   
         <div class="card mt-5 w-50 justify-content-center mx-auto">  
-            <center>  
+            <div class="text-center">  
                 <img src="https://binusasmg.sch.id/ppdb/logobinusa.png" width="100px" height="150px">  
-            </center>  
+            </div>  
             <h5 class="card-header mx-auto">Sistem Informasi Sekolah</h5>  
             <div class="card-body">  
                 <form action="auth" method="post">  
