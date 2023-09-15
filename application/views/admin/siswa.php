@@ -1,10 +1,9 @@
-<!DOCTYPE html> 
-<html lang="en"> 
- 
-<head> 
-    <meta charset="UTF-8"> 
-    <meta name="viewport" content="width=device-width, initial-scale=1.0"> 
-    <title>Dashboard</title> 
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/css/bootstrap.min.css" rel="stylesheet" 
         integrity="sha384-4bw+/aepP/YC94hEpVNVgiZdgIC5+VKNBQNGCHeKRQN+PtmoHDEXuppvnDJzQIu9" crossorigin="anonymous"> 
     <style> 
@@ -82,7 +81,7 @@
     /* CSS Untuk Konten */ 
     .content { 
         margin-left: 0; 
-        padding: 60px; 
+        padding: 20px; 
         transition: margin-left 0.5s; 
     } 
  
@@ -127,12 +126,10 @@
         /* Membuat ruang antara navbar dan tabel */ 
         padding: 20px; 
     } 
-    </style> 
-</head> 
- 
-<body> 
- 
-    <div class="navbar"> 
+    </style>
+</head>
+<body>
+<div class="navbar"> 
         <span class="openbtn" onclick="openNav()">&#9776;</span> 
         <h3 class="text-center text-white">Data Siswa</h3> 
         <div class="search-container"> 
@@ -145,19 +142,59 @@
     <div class="sidenav" id="mySidenav"> 
         <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times; tutup</a> 
         <a href="<?php echo base_url('admin') ?>">Beranda</a> 
-        <a href="<?php echo base_url('siswa') ?>">Siswa</a> 
+        <a href="<?php echo base_url('admin/siswa') ?>">Siswa</a> 
     </div> 
  
     <!-- Konten --> 
     <!-- Tabel --> 
-    <div class="content"> 
-        <div class="container table-container"> 
-            <table class="table table-striped"> 
- 
-                <thead> 
+    <div class="row ">
+            <div class="col-12 card p-2">
+                <div class="card-body min-vh-100  align-items-center">
+                    <div class="card w-100 m-auto p-2">
+                        <table class="table  table-striped">
+                            <thead>
+                                <tr>
+                                    <th scope="col">No </th>
+                                    <th scope="col">Nama siswa</th>
+                                    <th scope="col">NISN </th>
+                                    <th scope="col"> Gender </th>
+                                    <th scope="col"> Kelas </th>
+                                    <th scope="col">Aksi</th>
+                                </tr>
+                            </thead>
+                            <tbody> 
+                    <?php $no = 0; 
+                                foreach ($siswa as $row): 
+                                    $no++ ?> 
                     <tr> 
-                        <th>No</th> 
-                        <th>Nama Siswa</th> 
-                        <th>NISN</th> 
-                        <th>Gender</th> 
-                        <th>Kelas</th>
+                        <td> 
+                            <?php echo $no ?> 
+                        </td> 
+                        <td> 
+                            <?php echo $row->nama_siswa ?> 
+                        </td> 
+                        <td> 
+                            <?php echo $row->nisn ?> 
+                        </td> 
+                        <td> 
+                            <?php echo $row->gender ?> 
+                        </td> 
+                        <td> 
+                            <?php echo $row->id_kelas?> 
+                        </td> 
+                        <td class="text-center"> 
+                            <a href="" class="btn btn-primary btn-sm">Detail</a> 
+                            <button onclick="hapus(<?php echo $row->id_siswa ?>)" 
+                                class="btn btn-danger btn-sm">Hapus</button> 
+                        </td> 
+ 
+                    </tr> 
+                    <?php endforeach ?> 
+                </tbody>
+        </div>
+        <br>
+    </div>
+</body>
+</html>
+</body>
+</html>
