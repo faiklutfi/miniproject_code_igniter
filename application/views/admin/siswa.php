@@ -183,7 +183,7 @@
                             <?php echo $row->id_kelas?> 
                         </td> 
                         <td class="text-center"> 
-                            <a href="" class="btn btn-primary btn-sm">Detail</a> 
+                            <a href="<?php echo base_url('admin/ubah_siswa/').$row->id_siswa ?>" class="btn btn-primary btn-sm">Detail</a> 
                             <button onclick="hapus(<?php echo $row->id_siswa ?>)" 
                                 class="btn btn-danger btn-sm">Hapus</button> 
                         </td> 
@@ -194,6 +194,14 @@
         </div>
         <br>
     </div>
+    <script>
+    function hapus(id) {
+        var yes = confirm('Yakin Di Hapus?');
+        if (yes == true) {
+            window.location.href = "<?php echo base_url('admin/hapus_siswa/')?>" + id;
+        }
+    }
+    </script>
 </body>
 </html>
 </body>
