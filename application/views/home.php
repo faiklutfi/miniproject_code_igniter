@@ -52,7 +52,7 @@
                             <hr class="text-light">
                             <div class="d-flex justify-content-center">
                                 <div class="text-center mx-1">
-                                    <button type="submit" class="btn btn-secondary custom-button">PENGINAPAN</button>
+                                    <a href="./auth/register" type="submit" class="btn btn-secondary custom-button">REGISTER</a>
                                 </div>
                                 <div class="text-center mx-1">
                                 <a href="./auth" class="btn btn-warning custom-button">LOGIN</a>
