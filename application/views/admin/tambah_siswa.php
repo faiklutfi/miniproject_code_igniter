@@ -4,77 +4,111 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-    <script src="https://cdn.tailwindcss.com"></script>
+    <title>Tambah Siswa</title>
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" rel="stylesheet">
+    <style>
+        body {
+            display: flex;
+            font-family: Arial, sans-serif;
+            margin: 0;
+            min-height: 100vh;
+            background-color: #f0f8ff;
+            /* Light blue background */
+        }
 
+        #sidebar {
+            background-color: #3399ff;
+            /* Light blue sidebar */
+            color: #fff;
+            height: 100%;
+            width: 250px;
+            position: fixed;
+            left: 0;
+            top: 0;
+            transition: 0.3s;
+            padding-top: 20px;
+        }
+
+        #sidebar a {
+            padding: 10px 15px;
+            text-decoration: none;
+            color: #fff;
+            display: block;
+        }
+
+        #sidebar a:hover {
+            background-color: #3366ff;
+            /* Darker blue on hover */
+        }
+
+        #content {
+            flex: 1;
+            margin-left: 250px;
+            transition: 0.3s;
+            padding: 20px;
+        }
+    </style>
 </head>
 
 <body>
-    <div class="flex">
-        <div>
-            <?php $this->load->view('components/sidebar')?>
-        </div>
-
-        <div class="container mt-12">
-            <?php $this->load->view('components/navbar')?>
-            <div class="overflow-x-auto">
+<?php $this->load->view('components/sidebar') ?>
+    
+    <div id="content">
+        
+        <div class="card mb-4 shadow">
+            <div class="card-body">
+                <h5 class="card-title">Tambah Siswa</h5>
                 <form action="<?php echo base_url('admin/aksi_tambah_siswa') ?>" enctype="multipart/form-data"
-                    method="post">
-                    <div class="max-full rounded border overflow-hidden shadow-lg">
-                        <div class="px-6 py-4">
-                            <p class="text-xl font-bold text-center">Tambah Siswa</p>
-                            <div class="grid grid-cols-2 gap-4 mt-5">
-                                <div class="mb-4">
-                                    <label class="block text-gray-700 text-sm font-bold mb-2" for="nama">
-                                        Nama Siswa
-                                    </label>
-                                    <input
-                                        class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
-                                        id="nama" name="nama" type="text" placeholder="Nama">
-                                </div>
-                                <div class="mb-4">
-                                    <label class="block text-gray-700 text-sm font-bold mb-2" for="nisn">
-                                        NISN
-                                    </label>
-                                    <input
-                                        class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
-                                        id="nisn" name="nisn" type="number" placeholder="Nisn">
-                                </div>
-                                <div class="mb-4">
-                                    <label class="block text-gray-700 text-sm font-bold mb-2" for="gender">
-                                        Gender
-                                    </label>
-                                    <select name="gender" id="gender"
-                                        class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline">
-                                        <option selected>Pilih Gender</option>
-                                        <option value="Laki-Laki">Laki-Laki</option>
-                                        <option value="Perempuan">Perempuan</option>
-                                    </select>
-                                </div>
-                                <div class="mb-4">
-                                    <label class="block text-gray-700 text-sm font-bold mb-2" for="kelas">
-                                        Kelas
-                                    </label>
-                                    <select name="kelas" id="kelas"
-                                        class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline">
-                                        <option selected>Pilih Kelas</option>
-                                        <?php foreach($kelas as $row): ?>
-                                        <option value="<?php echo $row->id ?>">
-                                            <?php echo $row->tingkat_kelas.' '.$row->jurusan_kelas ?></option>
-                                        <?php endforeach ?>
-                                    </select>
-                                </div>
-                                    <button type="submit"
-                                    class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded w-2/6">
-                                    Tambah
-                                </button>
+                    method="POST">
+                    <div class="row">
+                        <div class="col-md-6">
+                            <div class="form-group">
+                                <label for="nama">Nama Siswa</label>
+                                <input type="text" class="form-control" id="nama" name="nama"
+                                    placeholder="Masukkan Nama Siswa" required>
+                            </div>
+                            <div class="form-group">
+                                <label for="nisn">NISN</label>
+                                <input type="text" class="form-control" id="nisn" name="nisn"
+                                    placeholder="Masukkan NISN" required>
                             </div>
                         </div>
+                        <div class="col-md-6">
+                            <div class="form-group">
+                                <label for="gender">Gender</label>
+                                <select class="form-control" id="gender" name="gender" required>
+                                    <option value="Laki-laki">Laki-laki</option>
+                                    <option value="Perempuan">Perempuan</option>
+                                </select>
+                            </div>
+                            <label for="kelas">Kelas</label>
+                            <select class="form-control" id="kelas" name="kelas" required>
+                                <option selected>Pilih Kelas</option>
+                                <?php foreach ($kelas as $row): ?>
+                                    <option value="<?php echo $row->id ?>">
+                                        <?php echo $row->tingkat_kelas . ' ' . $row->jurusan_kelas ?>
+                                    </option>
+                                <?php endforeach ?>
+                            </select>
+                        </div>
                     </div>
+                    <button type="submit" class="btn btn-primary">Simpan</button>
                 </form>
             </div>
         </div>
-    </div>
+        <script src="https://cdn.jsdelivr.net/npm/sweetalert2@10"></script>
+
+        <?php if ($this->session->flashdata('success')): ?>
+            <script>
+                Swal.fire({
+                    icon: 'success',
+                    title: '<?= $this->session->flashdata('success') ?>',
+                    showConfirmButton: false,
+                    timer: 1500
+                });
+            </script>
+        <?php endif; ?>
 </body>
 
 </html>

@@ -6,6 +6,12 @@ class M_model extends CI_Model
     {
         return $this->db->get($tabel);
     }
+    public function insert($tabel, $data)
+	{
+		$this->db->insert($tabel, $data);
+		return $this->db->insert_id();
+    }
+
 
     function getwhere($tabel, $data)
     {
@@ -33,5 +39,19 @@ class M_model extends CI_Model
         $data = $this->db->update($tabel, $data, $where);
         return $this->db->affected_rows();
     }
+    function cek_login($table,$where){
+		return $this->db->get_where($table,$where);
+	}
+	public function last_login($data, $where)
+	{
+		$this->db->update("admin", $data, $where);
+		return $this->db->affected_rows();
+	}
+	// ambil data dari database yang usernamenya $username dan passwordnya p$assword
+    function cek($table,$where)
+    {
+    return $this->db->get_where($table,$where);
+    }
+
 }
 ?>

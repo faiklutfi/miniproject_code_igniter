@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>siswa</title>
+    <title>Guru</title>
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.4.1/dist/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
     <script src="https://cdn.tailwindcss.com"></script>
 
@@ -132,29 +132,27 @@
                 <?php $this->load->view('components/sidebar') ?>
             </div>
             <div class=" col-10">
-            <?php foreach ($siswa as $data_siswa): ?>
-            <form action="<?php echo base_url('admin/aksi_ubah_siswa') ?>" enctype="multipart/form-data"
+            <form action="<?php echo base_url('admin/aksi_tambah_guru') ?>" enctype="multipart/form-data"
                     method="post">
-                    <input name="id_siswa" type="hidden" value="<?php echo $data_siswa->id_siswa ?>">
                     <div class="max-full rounded border overflow-hidden shadow-lg">
                         <div class="px-6 py-4">
-                            <p class="text-xl font-bold text-center">Ubah Siswa</p>
+                            <p class="text-xl font-bold text-center">Tambah guru</p>
                             <div class="grid grid-cols-2 gap-4 mt-5">
                                 <div class="mb-4">
-                                    <label class="block text-gray-700 text-sm font-bold mb-2" for="nama" value="<?php echo $data_siswa->nama_siswa ?>">
-                                        Nama Siswa
+                                    <label class="block text-gray-700 text-sm font-bold mb-2" for="nama">
+                                        Nama guru
                                     </label>
                                     <input
                                         class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
                                         id="nama" name="nama" type="text" placeholder="Nama">
                                 </div>
                                 <div class="mb-4">
-                                    <label class="block text-gray-700 text-sm font-bold mb-2" for="nisn">
-                                        NISN
+                                    <label class="block text-gray-700 text-sm font-bold mb-2" for="nik">
+                                        NIK
                                     </label>
                                     <input
                                         class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
-                                        id="nisn" name="nisn" type="number" placeholder="Nisn">
+                                        id="nik" name="nik" type="number" placeholder="nik">
                                 </div>
                                 <div class="mb-4">
                                     <label class="block text-gray-700 text-sm font-bold mb-2" for="gender">
@@ -168,27 +166,26 @@
                                     </select>
                                 </div>
                                 <div class="mb-4">
-                                    <label class="block text-gray-700 text-sm font-bold mb-2" for="kelas">
-                                        Kelas
+                                    <label class="block text-gray-700 text-sm font-bold mb-2" for="mapel">
+                                        mapel
                                     </label>
                                     <select name="kelas" id="kelas"
                                         class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline">
-                                        <option selected>Pilih Kelas</option>
+                                        <option selected>Pilih mapel</option>
                                         <?php foreach($kelas as $row): ?>
                                         <option value="<?php echo $row->id ?>">
-                                            <?php echo $row->tingkat_kelas.' '.$row->jurusan_kelas ?></option>
+                                            <?php echo $row->tingkat_mapel.' '.$row->jurusan_mapel ?></option>
                                         <?php endforeach ?>
                                     </select>
                                 </div>
                                     <button type="submit"
                                     class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded w-2/6">
-                                    Ubah
+                                    Tambah
                                 </button>
                             </div>
                         </div>
                     </div>
                 </form>
-                <?php endforeach ?>
             </div>
         </div>
     </div>
