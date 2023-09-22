@@ -33,7 +33,7 @@
                             </thead>
                             <tbody> 
                             <div class="float-right mb-1">
-                            <a href="<?php echo base_url('admin/tambah_guru'); ?>" type="submit" class="inline-block rounded bg-blue-600 px-4 py-2 text-xs font-medium text-white hover:bg-blue-700">
+                            <a href="<?php echo base_url('admin/tambah_siswa'); ?>" type="submit" class="inline-block rounded bg-blue-600 px-4 py-2 text-xs font-medium text-white hover:bg-blue-700">
                                             Tambah
                                         </a>
                             </div>
