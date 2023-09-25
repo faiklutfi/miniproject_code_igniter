@@ -1,62 +1,87 @@
 <!DOCTYPE html> 
 <html lang="en"> 
+ 
 <head> 
+ 
     <meta charset="UTF-8"> 
     <meta name="viewport" content="width=device-width, initial-scale=1.0"> 
     <title>Login</title> 
-    <!-- Tambahkan link ke Bootstrap CSS --> 
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0/dist/css/bootstrap.min.css"> 
- 
     <style> 
- 
-        body { 
-            background-image: url('https://wallpaperaccess.com/full/1952510.jpg'); 
-            background-size: cover;  
-            background-repeat: no-repeat; 
-            background-attachment: fixed;  
-        } 
-        .card-title { 
+    body {
+            background-image: url(https://www.gotravelly.com/blog/wp-content/uploads/2019/10/Gunung-Fuji-Jepang-1024x640.jpg);
+            background-size: cover; 
+            background-repeat: no-repeat;
+            background-attachment: fixed; 
+        }
+        .card-title {
+            color: #fff;
+        }
+        .card {
+            background-color: rgba(0, 0, 0, 0.2); 
+            padding: 20px;
+        }
+        .logo {
+            max-width: 200px;
+            height: auto; 
+            display: block; 
+            margin: 0 auto 40px; 
+        }
+        .custom-button {
+            font-size: 10px; 
+            width: 150px
+        }
+        .footer {
+            background-color: rgba(0, 0, 0, 0.7);
+            padding: 10px;
             color: #fff; 
-        } 
-        .card { 
-            background-color: rgba(255, 255, 255, 0.3);  
-            padding: 20px; 
-        } 
-        .logo { 
-            max-width: 200px; 
-            height: auto;  
-            display: block;  
-            margin: 0 auto 40px;  
-        } 
- 
+        }
+        .ddd{
+            text-align: center;
+        }
     </style> 
+    <link rel="stylesheet" type="text/css" href="style.css"> 
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/css/bootstrap.min.css" rel="stylesheet" 
+        integrity="sha384-4bw+/aepP/YC94hEpVNVgiZdgIC5+VKNBQNGCHeKRQN+PtmoHDEXuppvnDJzQIu9" crossorigin="anonymous"> 
 </head> 
-<body> 
-    <div class="min-vh-100 d-flex align-items-center"> 
-        <div class="container"> 
-            <div class="row justify-content-center"> 
-                <div class="col-md-4"> 
-                    <div class="card"> 
-                        <div class="card-body"> 
-                            <img src="https://assets.stickpng.com/images/580b57fcd9996e24bc43c4e7.png" alt="Logo" class="mb-4 logo"> 
-                            <h2 class="card-title text-center">Sign In</h2> 
-                            <form action="<?php echo base_url(); ?>Auth/aksi_login" method="post">
-                                <div class="mb-3"> 
-                                    <input type="text" class="form-control" name="email" placeholder="Email" required> 
-                                </div> 
-                                <div class="mb-3"> 
-                                    <input type="password" class="form-control" name="password" placeholder="Password" required> 
-                                </div> 
-                                <div class="text-center"> 
-                                    <button type="submit" class="btn btn-primary">Sign In</button> 
-                                </div> 
-                            </form> 
+ 
+<body class="body"> 
+    <div class="container "> 
+ 
+        <div class="card mt-5 w-50 justify-content-center mx-auto bg-transparent"> 
+        <h3 class="card-header mx-auto text-fold text-center" style="color:red"><strong>LOGIN</strong></h3>
+            <div class="card-body"> 
+                <form action="<?php echo base_url(); ?>auth/aksi_login" method="post" class="space-y-12"> 
+                <br>
+                    <div class="mb-3">
+                        <div class="ddd">
+                            <label for="email" class="block mb-2 text-sm text-center" style="color:yellow">Email Address</label>
+                        <input type="email" class="form-control" name="email" id="email" placeholder="Input your email" 
+                            aria-describedby="emailHelp"></div> 
+                
+                            <br>
+                            <br>
+                        <div class="flex justify-between mb-2">
+                            <div class="ddd">
+                                <label for="password" class="text-sm" style="color:yellow">Password</label> 
+                            <input type="password" class="form-control" name="password" id="password" 
+                                placeholder="Input your password" autocomplete="off"> 
+                            </div>
                         </div> 
-                    </div> 
-                </div> 
+ 
+                        <br>
+                        <div class="d-grid gap-2 col-6 mx-auto"> 
+                        <button type="submit" class="btn btn-primary text-bg-info">Login </button> 
+                            <div class="text-center"> 
+                            <br>
+                            <br>
+                                <a href="auth/register" style="color:red"><strong>Register</strong></a>
+                            </div> 
+                </form> 
             </div> 
         </div> 
     </div> 
-    <!-- Tambahkan script untuk Bootstrap JS jika diperlukan --> 
+    </div> 
+ 
 </body> 
+ 
 </html>

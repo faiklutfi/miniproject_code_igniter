@@ -52,29 +52,25 @@
 </head>
 
 <body>
-<?php $this->load->view('components/sidebar') ?>
+    <?php $this->load->view('components/sidebar') ?>
 
     <div id="content">
         <div class="card mb-4 shadow">
             <div class="card-body">
                 <h5 class="card-title">Edit Data Guru</h5>
-                <?php foreach ($guru as $data_guru): ?>
-                    <form action="<?php echo base_url('admin/aksi_ubah_guru') ?>" enctype="multipart/form-data"
-                        method="POST">
+                <?php foreach ($guru as $data_guru) : ?>
+                    <form action="<?php echo base_url('admin/aksi_ubah_guru') ?>" enctype="multipart/form-data" method="POST">
                         <input name="id_guru" type="hidden" value="<?php echo $data_guru->id_guru ?>">
 
                         <div class="row">
                             <div class="col-md-6">
                                 <div class="form-group">
                                     <label for="nama">Nama Guru</label>
-                                    <input type="text" class="form-control" id="nama" name="nama"
-                                        placeholder="Masukkan Nama Guru" value="<?php echo $data_guru->nama_guru ?>"
-                                        required>
+                                    <input type="text" class="form-control" id="nama" name="nama" placeholder="Masukkan Nama Guru" value="<?php echo $data_guru->nama_guru ?>" required>
                                 </div>
                                 <div class="form-group">
                                     <label for="nik">NIK</label>
-                                    <input type="text" class="form-control" id="nik" name="nik" placeholder="Masukkan NIK"
-                                        value="<?php echo $data_guru->nik ?>" required>
+                                    <input type="text" class="form-control" id="nik" name="nik" placeholder="Masukkan NIK" value="<?php echo $data_guru->nik ?>" required>
                                 </div>
                             </div>
                             <div class="col-md-6">
@@ -88,12 +84,12 @@
                                         <option value="Perempuan">Perempuan</option>
                                     </select>
                                 </div>
-                                <label for="mapel">Mapel</label>
-                                <select class="form-control" id="mapel" name="mapel" required>
+                                <label for="id_mapel">Mapel</label>
+                                <select class="form-control" id="id_mapel" name="id_mapel" required>
                                     <option selected value="<?php $data_guru->id_mapel ?>">
                                         <?php echo tampil_full_mapel_byid($data_guru->id_mapel) ?>
                                     </option>
-                                    <?php foreach ($mapel as $row): ?>
+                                    <?php foreach ($mapel as $row) : ?>
                                         <option value="<?php echo $row->id ?>">
                                             <?php echo $row->nama_mapel ?>
                                         </option>

@@ -36,7 +36,7 @@ class Admin extends CI_Controller
     }
     public function tambah_guru()
     {
-        $data['guru'] = $this->m_model->get_data('guru')->result();
+        $data['mapel'] = $this->m_model->get_data('mapel')->result();
         $this->load->view('admin/tambah_guru',$data);
     }
     public function aksi_tambah_guru()
@@ -45,7 +45,7 @@ class Admin extends CI_Controller
             'nama_guru' => $this->input->post('nama'),
             'nik' => $this->input->post('nik'),
             'gender' => $this->input->post('gender'),
-            'id_mapel' => $this->input->post('mapel'),
+            'id_mapel' => $this->input->post('id_mapel'),
            
         ];
 
@@ -114,7 +114,7 @@ class Admin extends CI_Controller
             'id_mapel' => $this->input->post('id_mapel'),
         );
         $eksekusi=$this->m_model->ubah_data
-        ('guru', $data, array('guru'=>$this->input->post('guru')));
+        ('guru', $data, array('id_guru'=>$this->input->post('id_guru')));
         if($eksekusi)
         {
             $this->session->set_flashdata('sukses', 'berhasil');
@@ -128,7 +128,7 @@ class Admin extends CI_Controller
 
     public function hapus_guru($id) 
  { 
-     $this->m_model->delete('guru', 'id', $id); 
+     $this->m_model->delete('guru', 'id_guru', $id); 
      redirect(base_url('admin/guru')); 
  }
 }

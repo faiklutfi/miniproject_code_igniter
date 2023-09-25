@@ -83,12 +83,12 @@
                                 </select>
                             </div>
                             <label for="kelas">Kelas</label>
-                            <select class="form-control" id="kelas" name="kelas" required>
+                            <select name="id_kelas" class="form-select">
                                 <option selected>Pilih Kelas</option>
-                                <?php foreach ($kelas as $row): ?>
-                                    <option value="<?php echo $row->id ?>">
-                                        <?php echo $row->tingkat_kelas . ' ' . $row->jurusan_kelas ?>
-                                    </option>
+                                <?php foreach($kelas as $row): ?>
+                                <option value="<?php echo $row->id ?>">
+                                    <?php echo $row->tingkat_kelas.' '.$row->jurusan_kelas ?>
+                                </option>
                                 <?php endforeach ?>
                             </select>
                         </div>

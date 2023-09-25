@@ -64,10 +64,10 @@
                                     <td class="whitespace-nowrap px-4 py-2 text-gray-700"><?php echo $row->gender ?></td>
                                     <td class="whitespace-nowrap px-4 py-2 text-gray-700"> <?php echo tampil_full_mapel_byid($row->id_mapel) ?> </td>
                                     <td class="whitespace-nowrap px-4 py-2 text-center">
-                                        <a href="<?php echo base_url('admin/ubah_guru/') . $row->id ?>" class="inline-block rounded bg-sky-600 px-4 py-2 text-xs font-medium text-white hover:bg-sky-700">
+                                        <a href="<?php echo base_url('admin/ubah_guru/') . $row->id_guru ?>" class="inline-block rounded bg-sky-600 px-4 py-2 text-xs font-medium text-white hover:bg-sky-700">
                                             Ubah
                                         </a>
-                                        <button onclick="hapus(<?php echo $row->id ?>)" class="inline-block rounded bg-red-600 px-4 py-2 text-xs font-medium text-white hover:bg-red-700">
+                                        <button onclick="hapus(<?php echo $row->id_guru ?>)" class="inline-block rounded bg-red-600 px-4 py-2 text-xs font-medium text-white hover:bg-red-700">
                                             Hapus
                                         </button>
                                        

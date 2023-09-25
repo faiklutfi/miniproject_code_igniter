@@ -132,8 +132,7 @@
                 <?php $this->load->view('components/sidebar') ?>
             </div>
             <div class=" col-10">
-            <form action="<?php echo base_url('admin/aksi_tambah_guru') ?>" enctype="multipart/form-data"
-                    method="post">
+                <form action="<?php echo base_url('admin/aksi_tambah_guru') ?>" enctype="multipart/form-data" method="post">
                     <div class="max-full rounded border overflow-hidden shadow-lg">
                         <div class="px-6 py-4">
                             <p class="text-xl font-bold text-center">Tambah guru</p>
@@ -142,24 +141,19 @@
                                     <label class="block text-gray-700 text-sm font-bold mb-2" for="nama">
                                         Nama guru
                                     </label>
-                                    <input
-                                        class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
-                                        id="nama" name="nama" type="text" placeholder="Nama">
+                                    <input class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" id="nama" name="nama" type="text" placeholder="Nama">
                                 </div>
                                 <div class="mb-4">
                                     <label class="block text-gray-700 text-sm font-bold mb-2" for="nik">
                                         NIK
                                     </label>
-                                    <input
-                                        class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
-                                        id="nik" name="nik" type="number" placeholder="nik">
+                                    <input class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" id="nik" name="nik" type="number" placeholder="nik">
                                 </div>
                                 <div class="mb-4">
                                     <label class="block text-gray-700 text-sm font-bold mb-2" for="gender">
                                         Gender
                                     </label>
-                                    <select name="gender" id="gender"
-                                        class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline">
+                                    <select name="gender" id="gender" class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline">
                                         <option selected>Pilih Gender</option>
                                         <option value="Laki-Laki">Laki-Laki</option>
                                         <option value="Perempuan">Perempuan</option>
@@ -169,17 +163,15 @@
                                     <label class="block text-gray-700 text-sm font-bold mb-2" for="mapel">
                                         mapel
                                     </label>
-                                    <select name="kelas" id="kelas"
-                                        class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline">
+                                    <select name="id_mapel" class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline">
                                         <option selected>Pilih mapel</option>
-                                        <?php foreach($kelas as $row): ?>
-                                        <option value="<?php echo $row->id ?>">
-                                            <?php echo $row->tingkat_mapel.' '.$row->jurusan_mapel ?></option>
+                                        <?php foreach ($mapel as $row) : ?>
+                                            <option value="<?php echo $row->id ?>">
+                                                <?php echo $row->nama_mapel ?></option>
                                         <?php endforeach ?>
                                     </select>
                                 </div>
-                                    <button type="submit"
-                                    class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded w-2/6">
+                                <button type="submit" class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded w-2/6">
                                     Tambah
                                 </button>
                             </div>
